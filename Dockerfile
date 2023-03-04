@@ -21,6 +21,7 @@ COPY --from=base $APP_PATH/package.json ./package.json
 RUN addgroup -g 1001 -S nodejs && \
   adduser -S nodejs -u 1001 && \
   chown -R nodejs:nodejs $APP_PATH/build
+RUN yarn db:migrate --env production-ssl-disabled
 
 USER nodejs
 

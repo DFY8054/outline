@@ -1,7 +1,7 @@
 up:
 	docker-compose up -d redis postgres s3
 	yarn install --pure-lockfile
-	yarn sequelize db:migrate
+	yarn sequelize db:migrate --env production-ssl-disabled
 	yarn dev:watch
 
 build:
